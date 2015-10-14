@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://anyetiangong.github.io/sitemap.xml 
