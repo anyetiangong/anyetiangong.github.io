@@ -4,7 +4,7 @@
   <title><![CDATA[I Vector]]></title>
   <link href="http://anyetiangong.github.io/atom.xml" rel="self"/>
   <link href="http://anyetiangong.github.io/"/>
-  <updated>2015-10-14T09:43:09+08:00</updated>
+  <updated>2015-10-14T12:10:36+08:00</updated>
   <id>http://anyetiangong.github.io/</id>
   <author>
     <name><![CDATA[Vector Li]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[NewPost]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/14/newpost/"/>
+    <updated>2015-10-14T12:08:53+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/14/newpost</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
