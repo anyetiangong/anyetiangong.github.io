@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Swift | I Vector]]></title>
+  <link href="http://anyetiangong.github.io/blog/categories/swift/atom.xml" rel="self"/>
+  <link href="http://anyetiangong.github.io/"/>
+  <updated>2015-10-15T18:36:35+08:00</updated>
+  <id>http://anyetiangong.github.io/</id>
+  <author>
+    <name><![CDATA[Vector Li]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Swift2基本语法]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic/"/>
+    <updated>2015-10-14T14:46:53+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic</id>
+    <content type="html"><![CDATA[<ol>
+<li>变量定义</li>
+<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
+<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
+<li><p>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</p>
+
+<pre><code class="`` swift">  var aNoneOpt: Int?
+  aNoneOpt = 33
+  aNoneOpt = nil
+</code></pre>
+
+<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
+
+<pre><code class="`` swift">  var abc = 1 + aNoneOpt!
+</code></pre>
+
+<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
+
+<pre><code class="`` swift">  var aNoneOpt: Int!
+</code></pre>
+
+<p>可以使用()在字符串列表中引用变量
+  <code>
+  let myNumber = 3
+  let myString = "My number is \(myNumber + 1)"
+ </code></p></li>
+<li><p>数据类型</p></li>
+<li><p>元组</p>
+
+<pre><code class="`` swift">  let aTuple = (1, "YES")
+  let theNumber = aTuple.0
+  let anotherTuple = (aNumber: 1, aString: "YES")  //给元组的值添加标签
+  let theOtherNumber = anotherTuple.aNumber
+</code></pre></li>
+<li><p>数组</p>
+
+<pre><code class="``   ">  // array
+  var myArray = [1, 2, 3]
+  myArray.append(4)
+  myArray.insert(5, atIndex: 0)  //可以在数组任意位置插入变量，不能超过边界
+  myArray.removeAtIndex(4)
+  myArray.reverse()   //颠倒排序
+  myArray.count   //数组元素数目
+  let arrayOfIntegers: [Int] = [1, 2, 3]  //使用let创建的数组内容不可变
+  let implicitArrayOfIntegers = [2, 3, 4] //自动推断
+  let anotherArray = [Int]()  //创建空数组的时候需要提供类型
+</code></pre></li>
+<li><p>字典
+字典是一种将键映射到指的类型
+  ```
+  var crew = [
+      &ldquo;Caption&rdquo;: &ldquo;Jean-Luc Picard&rdquo;,
+      &ldquo;First officer&rdquo;: &ldquo;William Riker&rdquo;,
+      &ldquo;Second Officer&rdquo;: &ldquo;Data&rdquo;
+  ]
+  crew[&ldquo;Caption&rdquo;] //通过键值获取数据
+  crew[&ldquo;Intern&rdquo;] = &ldquo;Wesley Crusher&rdquo;   //添加新的键对</p>
+
+<p>  var aNumberdictionary = [1: 2]
+  aNumberdictionary[21] = 23  //字典的键和值都可以其他类型
+  ```</p></li>
+<li>控制流
+Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。
+
+<ol>
+<li>for &hellip; in &hellip;
+ 对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：
+   <code>       
+   var firstCounter = 0
+   for index in 1 ..&lt; 10 {
+       firstCounter++
+   }
+  </code></li>
+<li>if let
+  即使赋值又是判断。</li>
+<li>switch
+   可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break
+   <code>
+   let tupleSwitch = ("Yes", 123)
+   switch tupleSwitch {
+   case ("Yes", 123):
+       println("Tuple contains 'Yes' and '123'")
+   case ("Yes", _):
+       println("Tuple contains 'Yes' and something else")
+   default:
+       break
+   }
+  </code></li>
+</ol>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

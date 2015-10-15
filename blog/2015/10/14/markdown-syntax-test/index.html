@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>I Vector</title>
+  <title>Markdown语法测试 - I Vector</title>
   <meta name="author" content="Vector Li">
 
   
-  <meta name="description" content="变量定义
-let指定常亮，var指定变量。
-编译器会自动推断对象的类型，也可以自己指定 let anExplicitInteger : Int = 2
-定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为nil，需要使用？，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil &hellip;">
+  <meta name="description" content="Cmd Markdown 简明语法手册 Test Markdown syntax from jekyllc markdonw syntax Links Most URLs will automatically be turned into links. To be explicit, just &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ let指定常亮，var指定变量。
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://anyetiangong.github.io/">
+  <link rel="canonical" href="http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="I Vector" type="application/atom+xml">
@@ -63,138 +60,12 @@ let指定常亮，var指定变量。
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/14/swift2-basic/">Swift2基本语法</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-10-14T14:46:53+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:46 pm</span></time>
-        
-           | <a href="/blog/2015/10/14/swift2-basic/#disqus_thread"
-             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ol>
-<li>变量定义</li>
-<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
-<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
-<li><p>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</p>
-
-<pre><code class="`` swift">  var aNoneOpt: Int?
-  aNoneOpt = 33
-  aNoneOpt = nil
-</code></pre>
-
-<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
-
-<pre><code class="`` swift">  var abc = 1 + aNoneOpt!
-</code></pre>
-
-<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
-
-<pre><code class="`` swift">  var aNoneOpt: Int!
-</code></pre>
-
-<p>可以使用()在字符串列表中引用变量
-  <code>
-  let myNumber = 3
-  let myString = "My number is \(myNumber + 1)"
- </code></p></li>
-<li><p>数据类型</p></li>
-<li><p>元组</p>
-
-<pre><code class="`` swift">  let aTuple = (1, "YES")
-  let theNumber = aTuple.0
-  let anotherTuple = (aNumber: 1, aString: "YES")  //给元组的值添加标签
-  let theOtherNumber = anotherTuple.aNumber
-</code></pre></li>
-<li><p>数组</p>
-
-<pre><code class="``   ">  // array
-  var myArray = [1, 2, 3]
-  myArray.append(4)
-  myArray.insert(5, atIndex: 0)  //可以在数组任意位置插入变量，不能超过边界
-  myArray.removeAtIndex(4)
-  myArray.reverse()   //颠倒排序
-  myArray.count   //数组元素数目
-  let arrayOfIntegers: [Int] = [1, 2, 3]  //使用let创建的数组内容不可变
-  let implicitArrayOfIntegers = [2, 3, 4] //自动推断
-  let anotherArray = [Int]()  //创建空数组的时候需要提供类型
-</code></pre></li>
-<li><p>字典
-字典是一种将键映射到指的类型
-  ```
-  var crew = [
-      &ldquo;Caption&rdquo;: &ldquo;Jean-Luc Picard&rdquo;,
-      &ldquo;First officer&rdquo;: &ldquo;William Riker&rdquo;,
-      &ldquo;Second Officer&rdquo;: &ldquo;Data&rdquo;
-  ]
-  crew[&ldquo;Caption&rdquo;] //通过键值获取数据
-  crew[&ldquo;Intern&rdquo;] = &ldquo;Wesley Crusher&rdquo;   //添加新的键对</p>
-
-<p>  var aNumberdictionary = [1: 2]
-  aNumberdictionary[21] = 23  //字典的键和值都可以其他类型
-  ```</p></li>
-<li>控制流
-Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。
-
-<ol>
-<li>for &hellip; in &hellip;
- 对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：
-   <code>       
-   var firstCounter = 0
-   for index in 1 ..&lt; 10 {
-       firstCounter++
-   }
-  </code></li>
-<li>if let
-  即使赋值又是判断。</li>
-<li>switch
-   可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break
-   <code>
-   let tupleSwitch = ("Yes", 123)
-   switch tupleSwitch {
-   case ("Yes", 123):
-       println("Tuple contains 'Yes' and '123'")
-   case ("Yes", _):
-       println("Tuple contains 'Yes' and something else")
-   default:
-       break
-   }
-  </code></li>
-</ol>
-</li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/10/14/markdown-syntax-test/">Markdown语法测试</a></h1>
+      <h1 class="entry-title">Markdown语法测试</h1>
     
     
       <p class="meta">
@@ -205,15 +76,15 @@ Swift中不需要将if for while等需要的判断条件放到括号中。但是
 
 <time class='entry-date' datetime='2015-10-14T14:24:08+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:24 pm</span></time>
         
-           | <a href="/blog/2015/10/14/markdown-syntax-test/#disqus_thread"
-             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://anyetiangong.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h1>Cmd Markdown 简明语法手册</h1>
+<div class="entry-content"><h1>Cmd Markdown 简明语法手册</h1>
 
 <hr />
 
@@ -416,18 +287,50 @@ You can also use a title if you want, like this:
 
 <h1>Section 2</h1>
 </div>
-  
-  
 
 
-    </article>
+  <footer>
+    <p class="meta">
+      
   
-  <div class="pagination">
+
+<span class="byline author vcard">Posted by <span class="fn">Vector Li</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-10-14T14:24:08+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:24 pm</span></time>
+      
+
+
+    </p>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/10/14/swift2-basic/" title="Next Post: Swift2基本语法">Swift2基本语法 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -452,6 +355,7 @@ You can also use a title if you want, like this:
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -466,7 +370,10 @@ You can also use a title if you want, like this:
       var disqus_shortname = 'ivector';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/';
+        var disqus_url = 'http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

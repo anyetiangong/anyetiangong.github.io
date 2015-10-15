@@ -4,7 +4,7 @@
   <title><![CDATA[I Vector]]></title>
   <link href="http://anyetiangong.github.io/atom.xml" rel="self"/>
   <link href="http://anyetiangong.github.io/"/>
-  <updated>2015-10-14T14:40:59+08:00</updated>
+  <updated>2015-10-15T18:36:35+08:00</updated>
   <id>http://anyetiangong.github.io/</id>
   <author>
     <name><![CDATA[Vector Li]]></name>
@@ -14,11 +14,312 @@
 
   
   <entry>
-    <title type="html"><![CDATA[NewPost]]></title>
-    <link href="http://anyetiangong.github.io/blog/2015/10/14/newpost/"/>
-    <updated>2015-10-14T12:08:53+08:00</updated>
-    <id>http://anyetiangong.github.io/blog/2015/10/14/newpost</id>
-    <content type="html"><![CDATA[<h3>Hello World!</h3>
+    <title type="html"><![CDATA[Swift2基本语法]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic/"/>
+    <updated>2015-10-14T14:46:53+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic</id>
+    <content type="html"><![CDATA[<ol>
+<li>变量定义</li>
+<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
+<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
+<li><p>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</p>
+
+<pre><code class="`` swift">  var aNoneOpt: Int?
+  aNoneOpt = 33
+  aNoneOpt = nil
+</code></pre>
+
+<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
+
+<pre><code class="`` swift">  var abc = 1 + aNoneOpt!
+</code></pre>
+
+<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
+
+<pre><code class="`` swift">  var aNoneOpt: Int!
+</code></pre>
+
+<p>可以使用()在字符串列表中引用变量
+  <code>
+  let myNumber = 3
+  let myString = "My number is \(myNumber + 1)"
+ </code></p></li>
+<li><p>数据类型</p></li>
+<li><p>元组</p>
+
+<pre><code class="`` swift">  let aTuple = (1, "YES")
+  let theNumber = aTuple.0
+  let anotherTuple = (aNumber: 1, aString: "YES")  //给元组的值添加标签
+  let theOtherNumber = anotherTuple.aNumber
+</code></pre></li>
+<li><p>数组</p>
+
+<pre><code class="``   ">  // array
+  var myArray = [1, 2, 3]
+  myArray.append(4)
+  myArray.insert(5, atIndex: 0)  //可以在数组任意位置插入变量，不能超过边界
+  myArray.removeAtIndex(4)
+  myArray.reverse()   //颠倒排序
+  myArray.count   //数组元素数目
+  let arrayOfIntegers: [Int] = [1, 2, 3]  //使用let创建的数组内容不可变
+  let implicitArrayOfIntegers = [2, 3, 4] //自动推断
+  let anotherArray = [Int]()  //创建空数组的时候需要提供类型
+</code></pre></li>
+<li><p>字典
+字典是一种将键映射到指的类型
+  ```
+  var crew = [
+      &ldquo;Caption&rdquo;: &ldquo;Jean-Luc Picard&rdquo;,
+      &ldquo;First officer&rdquo;: &ldquo;William Riker&rdquo;,
+      &ldquo;Second Officer&rdquo;: &ldquo;Data&rdquo;
+  ]
+  crew[&ldquo;Caption&rdquo;] //通过键值获取数据
+  crew[&ldquo;Intern&rdquo;] = &ldquo;Wesley Crusher&rdquo;   //添加新的键对</p>
+
+<p>  var aNumberdictionary = [1: 2]
+  aNumberdictionary[21] = 23  //字典的键和值都可以其他类型
+  ```</p></li>
+<li>控制流
+Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。
+
+<ol>
+<li>for &hellip; in &hellip;
+ 对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：
+   <code>       
+   var firstCounter = 0
+   for index in 1 ..&lt; 10 {
+       firstCounter++
+   }
+  </code></li>
+<li>if let
+  即使赋值又是判断。</li>
+<li>switch
+   可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break
+   <code>
+   let tupleSwitch = ("Yes", 123)
+   switch tupleSwitch {
+   case ("Yes", 123):
+       println("Tuple contains 'Yes' and '123'")
+   case ("Yes", _):
+       println("Tuple contains 'Yes' and something else")
+   default:
+       break
+   }
+  </code></li>
+</ol>
+</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Markdown语法测试]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/"/>
+    <updated>2015-10-14T14:24:08+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test</id>
+    <content type="html"><![CDATA[<h1>Cmd Markdown 简明语法手册</h1>
+
+<hr />
+
+<p><a href="http://sourceforge.net/p/jekyllc/bugs/markdown_syntax">Test Markdown syntax from jekyllc markdonw syntax</a></p>
+
+<h3>Links</h3>
+
+<p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
+<a href="http://someurl">http://someurl</a></p>
+
+<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#115;&#x6f;&#109;&#x65;&#98;&#x62;&#111;&#x62;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x73;&#111;&#109;&#x65;&#x62;&#98;&#x6f;&#x62;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+
+<p>To use text for the link, write it:
+<a href="http://someurl">like this</a></p>
+
+<p>You can add a <em>title</em> (which shows up under the cursor):
+<a href="http://someurl" title="this title shows up when you hover">like this</a></p>
+
+<h3>Reference Links</h3>
+
+<p>You can also put the <a href="http://url">link URL</a> below the current paragraph
+like <a href="http://another.url" title="A funky title">this</a>.</p>
+
+<p>You can also put the link URL below the current paragraph
+like this.
+Here the text &ldquo;link URL&rdquo; gets linked to &ldquo;<a href="http://url">http://url</a>&rdquo;, and the lines showing &ldquo;<a href="http://url">1</a>: <a href="http://url">http://url</a>&rdquo; won&rsquo;t show anything.
+Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text &ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.
+Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text
+&ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.</p>
+
+<h3>Artifact Links</h3>
+
+<p>Any forge resource (artifact) can be linked with surrounding square brackets, e.g. [MyPage] or [#123]. These artifact links can take several forms.
+Simple Links
+Most commonly, the artifact identifier can simply be surrounded with square brackets. Here are some examples:
+[MyWikiPage]       # Wiki - name of wiki page
+[#123]             # Tracker - ticket number
+[r10721]           # SVN - revision number
+[3b9d48]           # Git &amp; Mercurial - first 6 characters of revision hash
+[2012/02/my-post]  # Blog - post slug, including YYYY/MM/ prefix
+[a6d38f98]         # Discussion Thread - thread id
+[a6d38f98#42f8]    # Discussion Post - thread_id#post_id</p>
+
+<p>Two-part Links
+To link to an artifact in a specific tool, use the form: <code>[tool:artifact]</code>, where <code>tool</code> is the name of the tool as it appears in the URL. Two-part links are useful when you have two tools of the same type installed. For example, let&rsquo;s say you have a &lsquo;bugs&rsquo; tracker and a &lsquo;features&rsquo; tracker installed, and you want to link to the first ticket in each:
+[bugs:#1]
+[features:#1]</p>
+
+<p>Three-part Links
+To link to an artifact in another project, use the form: <code>[project:tool:artifact]</code>, where <code>project</code> is the name of the project as it appears in the URL. For example:
+[allura:wiki:Home]</p>
+
+<p>To link to an artifact in a subproject, use the form: <code>[project/subproject:tool:artifact]</code>, where <code>subproject</code> is the name of the subproject as it appears in the URL. For example:
+[allura/sub:code:3b9d48]</p>
+
+<h3>Basic Text Formatting</h3>
+
+<p>Use * or _ to emphasize things:
+<em>this is in italic</em>  and <em>so is this</em></p>
+
+<p><strong>this is in bold</strong>  and <strong>so is this</strong></p>
+
+<p><strong><em>this is bold and italic</em></strong>  and <strong><em>so is this</em></strong></p>
+
+<p>You can strike through text using HTML like this:
+<s>this is strike through text</s></p>
+
+<p>A carriage return
+makes a line break.</p>
+
+<p>Two carriage returns make a new paragraph.</p>
+
+<h3>Blockquotes</h3>
+
+<p>Use the > character in front of a line, just like in email</p>
+
+<blockquote><p>Use it if you&rsquo;re quoting a person, a song or whatever.</p>
+
+<p>You can use <em>italic</em> or lists inside them also.
+And just like with other paragraphs,
+all of these lines are still
+part of the blockquote, even without the > character in front.</p></blockquote>
+
+<p>To end the blockquote, just put a blank line before the following
+paragraph.</p>
+
+<p>Preformatted Text
+If you want some text to show up exactly as you write it, without Markdown doing anything to it, just indent every line by at least 4 spaces (or 1 tab). As an alternative to indenting, you can use 4 or more tildes before and after the text. See examples in the Code Highlighting section
+    This line won&rsquo;t <em>have any markdown</em> formatting applied.
+    I can even write <b>HTML</b> and it will show up as text.
+    This is great for showing program source code, or HTML or even
+    Markdown. <b>this won&rsquo;t show up as HTML</b> but
+    exactly <i>as you see it in this text file</i>.</p>
+
+<p>Within a paragraph, you can use backquotes to do the same thing.
+<code>This won't be *italic* or **bold** at all.</code></p>
+
+<h3>Lists</h3>
+
+<ul>
+<li>an asterisk starts an unordered list</li>
+<li>and this is another item in the list</li>
+<li>or you can also use the + character</li>
+<li>or the - character</li>
+</ul>
+
+
+<p>To start an ordered list, write this:</p>
+
+<ol>
+<li>this starts a list <em>with</em> numbers</li>
+<li>this will show as number &ldquo;2&rdquo;</li>
+<li>this will show as number &ldquo;3.&rdquo;</li>
+<li>any number, +, -, or * will keep the list going.
+
+<ul>
+<li>just indent by 4 spaces (or tab) to make a sub-list
+
+<ol>
+<li>keep indenting for more sub lists</li>
+</ol>
+</li>
+<li>here i&rsquo;m back to the second level</li>
+</ul>
+</li>
+</ol>
+
+
+<h3>Tables</h3>
+
+<p>You can create tables using pipes and dashes like this:
+  First Header  | Second Header
+  &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;-
+  Content Cell  | Content Cell
+  Content Cell  | Content Cell</p>
+
+<p>You can use markdown syntax within table cells for formatting:
+  First Header   | Second Header
+  &mdash;&mdash;&mdash;&mdash;-  | &mdash;&mdash;&mdash;&mdash;-
+  <em>Content Cell</em> | Content Cell
+  Content Cell   | Content Cell</p>
+
+<h3>Headers</h3>
+
+<p>Just put 1 or more dashes or equals signs (&mdash; or ===) below the title.</p>
+
+<h1>This is a huge header</h1>
+
+<h2>this is a smaller header</h2>
+
+<h3>Horizontal Rule</h3>
+
+<h2>Just put three or more *&rsquo;s or -&rsquo;s on a line:</h2>
+
+<p>Or, you can use single spaces between then, like this:</p>
+
+<hr />
+
+<p>or</p>
+
+<hr />
+
+<p>Make sure you have a blank line above the dashes, though, or else:</p>
+
+<h2>you will get a header</h2>
+
+<h3>Images</h3>
+
+<p>To include an image, just put a &ldquo;!&rdquo; in front of a text link:
+<img src="https://sourceforge.net/images/icon_linux.gif" alt="alternate text" /></p>
+
+<p>The &ldquo;alternate text&rdquo; will show up if the browser can&rsquo;t load the image.
+You can also use a title if you want, like this:
+<img src="https://sourceforge.net/images/icon_linux.gif" title="tiny arrow" alt="tiny arrow" /></p>
+
+<h3>More Headers</h3>
+
+<p>More ways of doing headers:</p>
+
+<h1>this is a huge header</h1>
+
+<h2>this is a smaller header</h2>
+
+<h3>this is even smaller</h3>
+
+<h4>more small</h4>
+
+<h5>even smaller</h5>
+
+<h6>smallest still: <code>&lt;h6&gt;</code> header</h6>
+
+<h3>Table of Contents</h3>
+
+<p>You can display a list of links to jump to headers in a document. Sub-headers will be nested.
+[TOC]</p>
+
+<h1>Section 1</h1>
+
+<h2>Sub-section 1</h2>
+
+<h1>Section 2</h1>
 ]]></content>
   </entry>
   
