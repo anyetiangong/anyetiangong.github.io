@@ -9,8 +9,7 @@
   <meta name="author" content="Vector Li">
 
   
-  <meta name="description" content="变量定义
-let指定常亮，var指定变量。
+  <meta name="description" content="常量与变量 let指定常亮，var指定变量。
 编译器会自动推断对象的类型，也可以自己指定 let anExplicitInteger : Int = 2
 定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为nil，需要使用？，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil &hellip;">
   
@@ -71,7 +70,216 @@ let指定常亮，var指定变量。
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/14/swift2-basic/">Swift2基本语法</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/10/14/swift2-basic-value-and-control/">Swift2基本语法-变量、常量与控制流</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-10-14T14:46:53+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:46 pm</span></time>
+        
+           | <a href="/blog/2015/10/14/swift2-basic-value-and-control/#disqus_thread"
+             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic-value-and-control/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>常量与变量</h3>
+
+<ul>
+<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
+<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
+<li>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>
+</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="mi">33</span>
+</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="nb">nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">aNoneOpt</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以使用()在字符串列表中引用变量</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">myNumber</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="k">let</span> <span class="n">myString</span> <span class="o">=</span> <span class="s">&quot;My number is \(myNumber + 1)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>容器</h3>
+
+<ul>
+<li>元组</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">aTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">let</span> <span class="n">theNumber</span> <span class="o">=</span> <span class="n">aTuple</span><span class="mf">.0</span>
+</span><span class='line'><span class="k">let</span> <span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="nl">aNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nl">aString</span><span class="p">:</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>  <span class="c1">//给元组的值添加标签</span>
+</span><span class='line'><span class="k">let</span> <span class="n">theOtherNumber</span> <span class="o">=</span> <span class="n">anotherTuple</span><span class="p">.</span><span class="n">aNumber</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>数组</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">// array</span>
+</span><span class='line'><span class="k">var</span> <span class="n">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nl">atIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">//可以在数组任意位置插入变量，不能超过边界</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>   <span class="c1">//颠倒排序</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">count</span>   <span class="c1">//数组元素数目</span>
+</span><span class='line'><span class="k">let</span> <span class="nl">arrayOfIntegers</span><span class="p">:</span> <span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">//使用let创建的数组内容不可变</span>
+</span><span class='line'><span class="k">let</span> <span class="n">implicitArrayOfIntegers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1">//自动推断</span>
+</span><span class='line'><span class="k">let</span> <span class="n">anotherArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">Int</span><span class="p">]()</span>  <span class="c1">//创建空数组的时候需要提供类型</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>字典
+字典是一种将键映射到指的类型</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">crew</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s">&quot;Caption&quot;</span><span class="o">:</span> <span class="s">&quot;Jean-Luc Picard&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s">&quot;First officer&quot;</span><span class="o">:</span> <span class="s">&quot;William Riker&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s">&quot;Second Officer&quot;</span><span class="o">:</span> <span class="s">&quot;Data&quot;</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Caption&quot;</span><span class="p">]</span> <span class="c1">//通过键值获取数据</span>
+</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Intern&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Wesley Crusher&quot;</span>   <span class="c1">//添加新的键对</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">var</span> <span class="n">aNumberdictionary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">:</span> <span class="mi">2</span><span class="p">]</span>
+</span><span class='line'><span class="n">aNumberdictionary</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1">//字典的键和值都可以其他类型</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>控制流</h3>
+
+<p>Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。</p>
+
+<ol>
+<li>for &hellip; in &hellip;
+对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">firstCounter</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">firstCounter</span><span class="o">++</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>if let
+即是赋值又是判断。</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">if</span> <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>switch
+ 可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">tupleSwitch</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</span><span class='line'><span class="k">switch</span> <span class="n">tupleSwitch</span> <span class="p">{</span>
+</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and &#39;123&#39;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and something else&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">default</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">break</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/10/14/swift2-basic/">Swift2基本语法-变量、常量与控制流</a></h1>
     
     
       <p class="meta">
@@ -90,97 +298,183 @@ let指定常亮，var指定变量。
   </header>
 
 
-  <div class="entry-content"><ol>
-<li>变量定义</li>
+  <div class="entry-content"><h3>常量与变量</h3>
+
+<ul>
 <li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
 <li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
-<li><p>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</p>
+<li>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</li>
+</ul>
 
-<pre><code class="`` swift">  var aNoneOpt: Int?
-  aNoneOpt = 33
-  aNoneOpt = nil
-</code></pre>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>
+</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="mi">33</span>
+</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="nb">nil</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
 
-<pre><code class="`` swift">  var abc = 1 + aNoneOpt!
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">aNoneOpt</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
 
-<pre><code class="`` swift">  var aNoneOpt: Int!
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>可以使用()在字符串列表中引用变量
-  <code>
-  let myNumber = 3
-  let myString = "My number is \(myNumber + 1)"
- </code></p></li>
-<li><p>数据类型</p></li>
-<li><p>元组</p>
 
-<pre><code class="`` swift">  let aTuple = (1, "YES")
-  let theNumber = aTuple.0
-  let anotherTuple = (aNumber: 1, aString: "YES")  //给元组的值添加标签
-  let theOtherNumber = anotherTuple.aNumber
-</code></pre></li>
-<li><p>数组</p>
+<p>可以使用()在字符串列表中引用变量</p>
 
-<pre><code class="``   ">  // array
-  var myArray = [1, 2, 3]
-  myArray.append(4)
-  myArray.insert(5, atIndex: 0)  //可以在数组任意位置插入变量，不能超过边界
-  myArray.removeAtIndex(4)
-  myArray.reverse()   //颠倒排序
-  myArray.count   //数组元素数目
-  let arrayOfIntegers: [Int] = [1, 2, 3]  //使用let创建的数组内容不可变
-  let implicitArrayOfIntegers = [2, 3, 4] //自动推断
-  let anotherArray = [Int]()  //创建空数组的时候需要提供类型
-</code></pre></li>
-<li><p>字典
-字典是一种将键映射到指的类型
-  ```
-  var crew = [
-      &ldquo;Caption&rdquo;: &ldquo;Jean-Luc Picard&rdquo;,
-      &ldquo;First officer&rdquo;: &ldquo;William Riker&rdquo;,
-      &ldquo;Second Officer&rdquo;: &ldquo;Data&rdquo;
-  ]
-  crew[&ldquo;Caption&rdquo;] //通过键值获取数据
-  crew[&ldquo;Intern&rdquo;] = &ldquo;Wesley Crusher&rdquo;   //添加新的键对</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">myNumber</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="k">let</span> <span class="n">myString</span> <span class="o">=</span> <span class="s">&quot;My number is \(myNumber + 1)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>  var aNumberdictionary = [1: 2]
-  aNumberdictionary[21] = 23  //字典的键和值都可以其他类型
-  ```</p></li>
-<li>控制流
-Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。
+
+<h3>容器</h3>
+
+<ul>
+<li>元组</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">aTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">let</span> <span class="n">theNumber</span> <span class="o">=</span> <span class="n">aTuple</span><span class="mf">.0</span>
+</span><span class='line'><span class="k">let</span> <span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="nl">aNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nl">aString</span><span class="p">:</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>  <span class="c1">//给元组的值添加标签</span>
+</span><span class='line'><span class="k">let</span> <span class="n">theOtherNumber</span> <span class="o">=</span> <span class="n">anotherTuple</span><span class="p">.</span><span class="n">aNumber</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>数组</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">// array</span>
+</span><span class='line'><span class="k">var</span> <span class="n">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nl">atIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">//可以在数组任意位置插入变量，不能超过边界</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>   <span class="c1">//颠倒排序</span>
+</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">count</span>   <span class="c1">//数组元素数目</span>
+</span><span class='line'><span class="k">let</span> <span class="nl">arrayOfIntegers</span><span class="p">:</span> <span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">//使用let创建的数组内容不可变</span>
+</span><span class='line'><span class="k">let</span> <span class="n">implicitArrayOfIntegers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1">//自动推断</span>
+</span><span class='line'><span class="k">let</span> <span class="n">anotherArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">Int</span><span class="p">]()</span>  <span class="c1">//创建空数组的时候需要提供类型</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>字典
+字典是一种将键映射到指的类型</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">crew</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s">&quot;Caption&quot;</span><span class="o">:</span> <span class="s">&quot;Jean-Luc Picard&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s">&quot;First officer&quot;</span><span class="o">:</span> <span class="s">&quot;William Riker&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s">&quot;Second Officer&quot;</span><span class="o">:</span> <span class="s">&quot;Data&quot;</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Caption&quot;</span><span class="p">]</span> <span class="c1">//通过键值获取数据</span>
+</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Intern&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Wesley Crusher&quot;</span>   <span class="c1">//添加新的键对</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">var</span> <span class="n">aNumberdictionary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">:</span> <span class="mi">2</span><span class="p">]</span>
+</span><span class='line'><span class="n">aNumberdictionary</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1">//字典的键和值都可以其他类型</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>控制流</h3>
+
+<p>Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。</p>
 
 <ol>
 <li>for &hellip; in &hellip;
- 对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：
-   <code>       
-   var firstCounter = 0
-   for index in 1 ..&lt; 10 {
-       firstCounter++
-   }
-  </code></li>
+对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">firstCounter</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">firstCounter</span><span class="o">++</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
 <li>if let
-  即使赋值又是判断。</li>
+即是赋值又是判断。</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">if</span> <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+</span><span class='line'>  
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
 <li>switch
-   可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break
-   <code>
-   let tupleSwitch = ("Yes", 123)
-   switch tupleSwitch {
-   case ("Yes", 123):
-       println("Tuple contains 'Yes' and '123'")
-   case ("Yes", _):
-       println("Tuple contains 'Yes' and something else")
-   default:
-       break
-   }
-  </code></li>
+ 可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break</li>
 </ol>
-</li>
-</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">tupleSwitch</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</span><span class='line'><span class="k">switch</span> <span class="n">tupleSwitch</span> <span class="p">{</span>
+</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and &#39;123&#39;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and something else&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">default</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">break</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
   
@@ -224,7 +518,7 @@ Swift中不需要将if for while等需要的判断条件放到括号中。但是
 <p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
 <a href="http://someurl">http://someurl</a></p>
 
-<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#115;&#x6f;&#109;&#x65;&#98;&#x62;&#111;&#x62;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;">&#x73;&#111;&#109;&#x65;&#x62;&#98;&#x6f;&#x62;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#115;&#x6f;&#x6d;&#x65;&#x62;&#x62;&#111;&#x62;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#109;">&#115;&#111;&#109;&#x65;&#98;&#98;&#x6f;&#98;&#64;&#101;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
 
 <p>To use text for the link, write it:
 <a href="http://someurl">like this</a></p>
@@ -435,7 +729,11 @@ You can also use a title if you want, like this:
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/10/14/swift2-basic/">Swift2基本语法</a>
+        <a href="/blog/2015/10/14/swift2-basic-value-and-control/">Swift2基本语法-变量、常量与控制流</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/10/14/swift2-basic/">Swift2基本语法-变量、常量与控制流</a>
       </li>
     
       <li class="post">
