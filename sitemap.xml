@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic-value-and-control/</loc>
-    <lastmod>2015-10-14T14:46:53+08:00</lastmod>
-  </url>
-  <url>
-    <loc>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic/</loc>
-    <lastmod>2015-10-14T14:46:53+08:00</lastmod>
+    <loc>http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/</loc>
+    <lastmod>2015-10-22T12:39:12+08:00</lastmod>
   </url>
   <url>
     <loc>http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/</loc>
@@ -17,8 +13,5 @@
   </url>
   <url>
     <loc>http://anyetiangong.github.io/</loc>
-  </url>
-  <url>
-    <loc>http://anyetiangong.github.io/blog/categories/swift/</loc>
   </url>
 </urlset>

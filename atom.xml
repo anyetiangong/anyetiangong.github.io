@@ -4,7 +4,7 @@
   <title><![CDATA[I Vector]]></title>
   <link href="http://anyetiangong.github.io/atom.xml" rel="self"/>
   <link href="http://anyetiangong.github.io/"/>
-  <updated>2015-10-16T12:41:23+08:00</updated>
+  <updated>2015-10-22T17:58:23+08:00</updated>
   <id>http://anyetiangong.github.io/</id>
   <author>
     <name><![CDATA[Vector Li]]></name>
@@ -14,73 +14,39 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Swift2基本语法-变量、常量与控制流]]></title>
-    <link href="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic-value-and-control/"/>
-    <updated>2015-10-14T14:46:53+08:00</updated>
-    <id>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic-value-and-control</id>
-    <content type="html"><![CDATA[<h3>常量与变量</h3>
-
-<ul>
-<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
-<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
-<li>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</li>
-</ul>
-
+    <title type="html"><![CDATA[Swift基础：变量的创建和使用]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/"/>
+    <updated>2015-10-22T12:39:12+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use</id>
+    <content type="html"><![CDATA[<p>创建变量时不需要指定类型，swift可以对类型进行推断。但是赋值之后，不能再改变变量的类型。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>
-</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="mi">33</span>
-</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="nb">nil</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;Hello, playground&quot;</span>
+</span><span class='line'><span class="k">var</span> <span class="n">intValue</span> <span class="o">=</span> <span class="mi">343</span>
+</span><span class='line'><span class="c1">//intValue = &quot;efjiwe&quot;   //不允许改变变量类型</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">aNoneOpt</span><span class="o">!</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可以使用()在字符串列表中引用变量</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">myNumber</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="k">let</span> <span class="n">myString</span> <span class="o">=</span> <span class="s">&quot;My number is \(myNumber + 1)&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>容器</h3>
-
-<ul>
-<li>元组</li>
-</ul>
-
+<p>非可选变量不允许被设置为nil，使用之前必须进行初始化</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">aTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">let</span> <span class="n">theNumber</span> <span class="o">=</span> <span class="n">aTuple</span><span class="mf">.0</span>
-</span><span class='line'><span class="k">let</span> <span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="nl">aNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nl">aString</span><span class="p">:</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>  <span class="c1">//给元组的值添加标签</span>
-</span><span class='line'><span class="k">let</span> <span class="n">theOtherNumber</span> <span class="o">=</span> <span class="n">anotherTuple</span><span class="p">.</span><span class="n">aNumber</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">//var nilValue = nil    //非可选变量不允许被设置为nil</span>
+</span><span class='line'><span class="k">var</span> <span class="nl">anotherIntValue</span><span class="p">:</span> <span class="n">Int</span>    <span class="c1">//创建变量时可以不赋值，此时需要指定变量类型</span>
+</span><span class='line'><span class="c1">//var result = anotherIntValue + 3    //不能直接使用没有复制的变量</span>
+</span><span class='line'><span class="n">anotherIntValue</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="k">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">anotherIntValue</span>
+</span><span class='line'><span class="n">result</span> <span class="o">=</span> <span class="mi">4</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>数组</li>
-</ul>
-
+<p>可选变量通过Type？或Type！来创建，允许设置为nil。如果没有声明为已拆包的类型，在使用时需要进行拆包</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -91,295 +57,15 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">// array</span>
-</span><span class='line'><span class="k">var</span> <span class="n">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nl">atIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">//可以在数组任意位置插入变量，不能超过边界</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>   <span class="c1">//颠倒排序</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">count</span>   <span class="c1">//数组元素数目</span>
-</span><span class='line'><span class="k">let</span> <span class="nl">arrayOfIntegers</span><span class="p">:</span> <span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">//使用let创建的数组内容不可变</span>
-</span><span class='line'><span class="k">let</span> <span class="n">implicitArrayOfIntegers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1">//自动推断</span>
-</span><span class='line'><span class="k">let</span> <span class="n">anotherArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">Int</span><span class="p">]()</span>  <span class="c1">//创建空数组的时候需要提供类型</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>字典
-字典是一种将键映射到指的类型</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">crew</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'>    <span class="s">&quot;Caption&quot;</span><span class="o">:</span> <span class="s">&quot;Jean-Luc Picard&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s">&quot;First officer&quot;</span><span class="o">:</span> <span class="s">&quot;William Riker&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s">&quot;Second Officer&quot;</span><span class="o">:</span> <span class="s">&quot;Data&quot;</span>
-</span><span class='line'><span class="p">]</span>
-</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Caption&quot;</span><span class="p">]</span> <span class="c1">//通过键值获取数据</span>
-</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Intern&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Wesley Crusher&quot;</span>   <span class="c1">//添加新的键对</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">optionValue</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>    <span class="c1">//通过 Type？来创建可选变量</span>
+</span><span class='line'><span class="n">optionValue</span> <span class="o">=</span> <span class="nb">nil</span>        <span class="c1">//可选变量可以设置为nil</span>
+</span><span class='line'><span class="c1">//var anotherResult = optionValue! + 4  //使用可选变量的时候需要拆包，如果拆包返回nil，停止运行</span>
+</span><span class='line'><span class="n">optionValue</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="k">var</span> <span class="n">anotherResult</span> <span class="o">=</span> <span class="n">optionValue</span><span class="o">!</span> <span class="o">+</span> <span class="mi">4</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">var</span> <span class="n">aNumberdictionary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">:</span> <span class="mi">2</span><span class="p">]</span>
-</span><span class='line'><span class="n">aNumberdictionary</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1">//字典的键和值都可以其他类型</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>控制流</h3>
-
-<p>Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。</p>
-
-<ol>
-<li>for &hellip; in &hellip;
-对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">firstCounter</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">firstCounter</span><span class="o">++</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>if let
-即是赋值又是判断。</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">if</span> <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
-</span><span class='line'>  
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>switch
- 可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">tupleSwitch</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
-</span><span class='line'><span class="k">switch</span> <span class="n">tupleSwitch</span> <span class="p">{</span>
-</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span><span class="o">:</span>
-</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and &#39;123&#39;&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span><span class="o">:</span>
-</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and something else&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">default</span><span class="o">:</span>
-</span><span class='line'>    <span class="k">break</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Swift2基本语法-变量、常量与控制流]]></title>
-    <link href="http://anyetiangong.github.io/blog/2015/10/14/swift2-basic/"/>
-    <updated>2015-10-14T14:46:53+08:00</updated>
-    <id>http://anyetiangong.github.io/blog/2015/10/14/swift2-basic</id>
-    <content type="html"><![CDATA[<h3>常量与变量</h3>
-
-<ul>
-<li><code>let</code>指定常亮，<code>var</code>指定变量。</li>
-<li>编译器会自动推断对象的类型，也可以自己指定 <code>let anExplicitInteger : Int = 2</code></li>
-<li>定义常量和变量的时候必须指定值。如果希望某一个变量在某个时刻为<code>nil</code>，需要使用<code>？</code>，此时该变量称为一个可选标量。只有可选变量才允许被设置为 nil！</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>
-</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="mi">33</span>
-</span><span class='line'><span class="n">aNoneOpt</span> <span class="o">=</span> <span class="nb">nil</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>对于可选变量，可以进行拆包（unwrap）操作，获得其取值。这一工作用 ! 字符实现。<strong>请注意</strong>，如果对一个可选变量进行拆包，而它并没有值，程序将会抛出一个 运行时错误，并会崩溃：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">abc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">aNoneOpt</span><span class="o">!</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果不希望在每次用到可选变量时都要对其进行拆包，可以将它们声明为已拆包的.这样就可以直接使用它们的值，但可能会不安全。请谨慎使用。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">aNoneOpt</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可以使用()在字符串列表中引用变量</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">myNumber</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="k">let</span> <span class="n">myString</span> <span class="o">=</span> <span class="s">&quot;My number is \(myNumber + 1)&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>容器</h3>
-
-<ul>
-<li>元组</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">aTuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">let</span> <span class="n">theNumber</span> <span class="o">=</span> <span class="n">aTuple</span><span class="mf">.0</span>
-</span><span class='line'><span class="k">let</span> <span class="n">anotherTuple</span> <span class="o">=</span> <span class="p">(</span><span class="nl">aNumber</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nl">aString</span><span class="p">:</span> <span class="s">&quot;YES&quot;</span><span class="p">)</span>  <span class="c1">//给元组的值添加标签</span>
-</span><span class='line'><span class="k">let</span> <span class="n">theOtherNumber</span> <span class="o">=</span> <span class="n">anotherTuple</span><span class="p">.</span><span class="n">aNumber</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>数组</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">// array</span>
-</span><span class='line'><span class="k">var</span> <span class="n">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nl">atIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">//可以在数组任意位置插入变量，不能超过边界</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">reverse</span><span class="p">()</span>   <span class="c1">//颠倒排序</span>
-</span><span class='line'><span class="n">myArray</span><span class="p">.</span><span class="n">count</span>   <span class="c1">//数组元素数目</span>
-</span><span class='line'><span class="k">let</span> <span class="nl">arrayOfIntegers</span><span class="p">:</span> <span class="p">[</span><span class="n">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1">//使用let创建的数组内容不可变</span>
-</span><span class='line'><span class="k">let</span> <span class="n">implicitArrayOfIntegers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="c1">//自动推断</span>
-</span><span class='line'><span class="k">let</span> <span class="n">anotherArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">Int</span><span class="p">]()</span>  <span class="c1">//创建空数组的时候需要提供类型</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>字典
-字典是一种将键映射到指的类型</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">crew</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'>    <span class="s">&quot;Caption&quot;</span><span class="o">:</span> <span class="s">&quot;Jean-Luc Picard&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s">&quot;First officer&quot;</span><span class="o">:</span> <span class="s">&quot;William Riker&quot;</span><span class="p">,</span>
-</span><span class='line'>    <span class="s">&quot;Second Officer&quot;</span><span class="o">:</span> <span class="s">&quot;Data&quot;</span>
-</span><span class='line'><span class="p">]</span>
-</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Caption&quot;</span><span class="p">]</span> <span class="c1">//通过键值获取数据</span>
-</span><span class='line'><span class="n">crew</span><span class="p">[</span><span class="s">&quot;Intern&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Wesley Crusher&quot;</span>   <span class="c1">//添加新的键对</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">var</span> <span class="n">aNumberdictionary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">:</span> <span class="mi">2</span><span class="p">]</span>
-</span><span class='line'><span class="n">aNumberdictionary</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1">//字典的键和值都可以其他类型</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>控制流</h3>
-
-<p>Swift中不需要将if for while等需要的判断条件放到括号中。但是执行语句必须放入大括号中，哪怕只有一句。</p>
-
-<ol>
-<li>for &hellip; in &hellip;
-对项目集合进行遍历，不需要指定类型。可以用来迭代一个数值的范围：</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="n">firstCounter</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="k">for</span> <span class="n">index</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span><span class="o">&lt;</span> <span class="mi">10</span> <span class="p">{</span>
-</span><span class='line'>    <span class="n">firstCounter</span><span class="o">++</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>if let
-即是赋值又是判断。</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">if</span> <span class="k">let</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
-</span><span class='line'>  
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>switch
- 可以对数字，字符串和元组进行匹配，也可以判断数字区间 0 &hellip;  10。执行完一个case之后不会自动进入下一个case，不需要break</li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">let</span> <span class="n">tupleSwitch</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
-</span><span class='line'><span class="k">switch</span> <span class="n">tupleSwitch</span> <span class="p">{</span>
-</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span><span class="o">:</span>
-</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and &#39;123&#39;&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">case</span> <span class="p">(</span><span class="s">&quot;Yes&quot;</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span><span class="o">:</span>
-</span><span class='line'>    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Tuple contains &#39;Yes&#39; and something else&quot;</span><span class="p">)</span>
-</span><span class='line'><span class="k">default</span><span class="o">:</span>
-</span><span class='line'>    <span class="k">break</span>
-</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">var</span> <span class="nl">unWrapedValue</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>     <span class="c1">//通过 Type！创建已拆包的可选变量</span>
+</span><span class='line'><span class="n">unWrapedValue</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="n">anotherResult</span> <span class="o">=</span> <span class="n">unWrapedValue</span> <span class="o">+</span> <span class="mi">3</span>   <span class="c1">//使用时不需要再次拆包，但仍有可能出错</span>
 </span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
@@ -390,18 +76,14 @@
     <link href="http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/"/>
     <updated>2015-10-14T14:24:08+08:00</updated>
     <id>http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test</id>
-    <content type="html"><![CDATA[<h1>Cmd Markdown 简明语法手册</h1>
-
-<hr />
-
-<p><a href="http://sourceforge.net/p/jekyllc/bugs/markdown_syntax">Test Markdown syntax from jekyllc markdonw syntax</a></p>
+    <content type="html"><![CDATA[<p><a href="http://sourceforge.net/p/jekyllc/bugs/markdown_syntax">Test Markdown syntax from jekyllc markdonw syntax</a></p>
 
 <h3>Links</h3>
 
 <p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
 <a href="http://someurl">http://someurl</a></p>
 
-<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#115;&#x6f;&#x6d;&#x65;&#x62;&#x62;&#111;&#x62;&#x40;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#109;">&#115;&#111;&#109;&#x65;&#98;&#98;&#x6f;&#98;&#64;&#101;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#115;&#x6f;&#109;&#101;&#x62;&#x62;&#x6f;&#98;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#109;&#x65;&#x62;&#x62;&#x6f;&#x62;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
 
 <p>To use text for the link, write it:
 <a href="http://someurl">like this</a></p>
@@ -420,31 +102,6 @@ Here the text &ldquo;link URL&rdquo; gets linked to &ldquo;<a href="http://url">
 Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text &ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.
 Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text
 &ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.</p>
-
-<h3>Artifact Links</h3>
-
-<p>Any forge resource (artifact) can be linked with surrounding square brackets, e.g. [MyPage] or [#123]. These artifact links can take several forms.
-Simple Links
-Most commonly, the artifact identifier can simply be surrounded with square brackets. Here are some examples:
-[MyWikiPage]       # Wiki - name of wiki page
-[#123]             # Tracker - ticket number
-[r10721]           # SVN - revision number
-[3b9d48]           # Git &amp; Mercurial - first 6 characters of revision hash
-[2012/02/my-post]  # Blog - post slug, including YYYY/MM/ prefix
-[a6d38f98]         # Discussion Thread - thread id
-[a6d38f98#42f8]    # Discussion Post - thread_id#post_id</p>
-
-<p>Two-part Links
-To link to an artifact in a specific tool, use the form: <code>[tool:artifact]</code>, where <code>tool</code> is the name of the tool as it appears in the URL. Two-part links are useful when you have two tools of the same type installed. For example, let&rsquo;s say you have a &lsquo;bugs&rsquo; tracker and a &lsquo;features&rsquo; tracker installed, and you want to link to the first ticket in each:
-[bugs:#1]
-[features:#1]</p>
-
-<p>Three-part Links
-To link to an artifact in another project, use the form: <code>[project:tool:artifact]</code>, where <code>project</code> is the name of the project as it appears in the URL. For example:
-[allura:wiki:Home]</p>
-
-<p>To link to an artifact in a subproject, use the form: <code>[project/subproject:tool:artifact]</code>, where <code>subproject</code> is the name of the subproject as it appears in the URL. For example:
-[allura/sub:code:3b9d48]</p>
 
 <h3>Basic Text Formatting</h3>
 
@@ -521,17 +178,49 @@ If you want some text to show up exactly as you write it, without Markdown doing
 
 <h3>Tables</h3>
 
-<p>You can create tables using pipes and dashes like this:
-  First Header  | Second Header
-  &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;-
-  Content Cell  | Content Cell
-  Content Cell  | Content Cell</p>
+<p>You can create tables using pipes and dashes like this:</p>
 
-<p>You can use markdown syntax within table cells for formatting:
-  First Header   | Second Header
-  &mdash;&mdash;&mdash;&mdash;-  | &mdash;&mdash;&mdash;&mdash;-
-  <em>Content Cell</em> | Content Cell
-  Content Cell   | Content Cell</p>
+<table>
+<thead>
+<tr>
+<th>First Header  </th>
+<th> Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell  </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>You can use markdown syntax within table cells for formatting:</p>
+
+<table>
+<thead>
+<tr>
+<th>First Header   </th>
+<th> Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Content Cell</em> </td>
+<td> Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell   </td>
+<td> Content Cell</td>
+</tr>
+</tbody>
+</table>
+
 
 <h3>Headers</h3>
 
@@ -581,17 +270,6 @@ You can also use a title if you want, like this:
 <h5>even smaller</h5>
 
 <h6>smallest still: <code>&lt;h6&gt;</code> header</h6>
-
-<h3>Table of Contents</h3>
-
-<p>You can display a list of links to jump to headers in a document. Sub-headers will be nested.
-[TOC]</p>
-
-<h1>Section 1</h1>
-
-<h2>Sub-section 1</h2>
-
-<h1>Section 2</h1>
 ]]></content>
   </entry>
   

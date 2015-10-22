@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>I Vector</title>
+  <title>Swift基础：变量的创建和使用 - I Vector</title>
   <meta name="author" content="Vector Li">
 
   
@@ -23,7 +23,7 @@ var intValue = 343
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://anyetiangong.github.io/">
+  <link rel="canonical" href="http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="I Vector" type="application/atom+xml">
@@ -65,15 +65,12 @@ var intValue = 343
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/22/swift-base-value-create-and-use/">Swift基础：变量的创建和使用</a></h1>
+      <h1 class="entry-title">Swift基础：变量的创建和使用</h1>
     
     
       <p class="meta">
@@ -84,15 +81,15 @@ var intValue = 343
 
 <time class='entry-date' datetime='2015-10-22T12:39:12+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:39 pm</span></time>
         
-           | <a href="/blog/2015/10/22/swift-base-value-create-and-use/#disqus_thread"
-             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/">Comments</a>
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://anyetiangong.github.io">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>创建变量时不需要指定类型，swift可以对类型进行推断。但是赋值之后，不能再改变变量的类型。</p>
+<div class="entry-content"><p>创建变量时不需要指定类型，swift可以对类型进行推断。但是赋值之后，不能再改变变量的类型。</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -143,243 +140,50 @@ var intValue = 343
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vector Li</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-10-22T12:39:12+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:39 pm</span></time>
+      
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/10/14/markdown-syntax-test/">Markdown语法测试</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-10-14T14:24:08+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>2:24 pm</span></time>
-        
-           | <a href="/blog/2015/10/14/markdown-syntax-test/#disqus_thread"
-             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/14/markdown-syntax-test/">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://sourceforge.net/p/jekyllc/bugs/markdown_syntax">Test Markdown syntax from jekyllc markdonw syntax</a></p>
-
-<h3>Links</h3>
-
-<p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
-<a href="http://someurl">http://someurl</a></p>
-
-<p><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#115;&#x6f;&#109;&#101;&#x62;&#x62;&#x6f;&#98;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#109;&#x65;&#x62;&#x62;&#x6f;&#x62;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
-
-<p>To use text for the link, write it:
-<a href="http://someurl">like this</a></p>
-
-<p>You can add a <em>title</em> (which shows up under the cursor):
-<a href="http://someurl" title="this title shows up when you hover">like this</a></p>
-
-<h3>Reference Links</h3>
-
-<p>You can also put the <a href="http://url">link URL</a> below the current paragraph
-like <a href="http://another.url" title="A funky title">this</a>.</p>
-
-<p>You can also put the link URL below the current paragraph
-like this.
-Here the text &ldquo;link URL&rdquo; gets linked to &ldquo;<a href="http://url">http://url</a>&rdquo;, and the lines showing &ldquo;<a href="http://url">1</a>: <a href="http://url">http://url</a>&rdquo; won&rsquo;t show anything.
-Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text &ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.
-Or you can use a <a href="http://goes/with/the/link/name/text">shortcut</a> reference, which links the text
-&ldquo;shortcut&rdquo; to the link named &ldquo;<a href="http://goes/with/the/link/name/text">shortcut</a>&rdquo; on the next paragraph.</p>
-
-<h3>Basic Text Formatting</h3>
-
-<p>Use * or _ to emphasize things:
-<em>this is in italic</em>  and <em>so is this</em></p>
-
-<p><strong>this is in bold</strong>  and <strong>so is this</strong></p>
-
-<p><strong><em>this is bold and italic</em></strong>  and <strong><em>so is this</em></strong></p>
-
-<p>You can strike through text using HTML like this:
-<s>this is strike through text</s></p>
-
-<p>A carriage return
-makes a line break.</p>
-
-<p>Two carriage returns make a new paragraph.</p>
-
-<h3>Blockquotes</h3>
-
-<p>Use the > character in front of a line, just like in email</p>
-
-<blockquote><p>Use it if you&rsquo;re quoting a person, a song or whatever.</p>
-
-<p>You can use <em>italic</em> or lists inside them also.
-And just like with other paragraphs,
-all of these lines are still
-part of the blockquote, even without the > character in front.</p></blockquote>
-
-<p>To end the blockquote, just put a blank line before the following
-paragraph.</p>
-
-<p>Preformatted Text
-If you want some text to show up exactly as you write it, without Markdown doing anything to it, just indent every line by at least 4 spaces (or 1 tab). As an alternative to indenting, you can use 4 or more tildes before and after the text. See examples in the Code Highlighting section
-    This line won&rsquo;t <em>have any markdown</em> formatting applied.
-    I can even write <b>HTML</b> and it will show up as text.
-    This is great for showing program source code, or HTML or even
-    Markdown. <b>this won&rsquo;t show up as HTML</b> but
-    exactly <i>as you see it in this text file</i>.</p>
-
-<p>Within a paragraph, you can use backquotes to do the same thing.
-<code>This won't be *italic* or **bold** at all.</code></p>
-
-<h3>Lists</h3>
-
-<ul>
-<li>an asterisk starts an unordered list</li>
-<li>and this is another item in the list</li>
-<li>or you can also use the + character</li>
-<li>or the - character</li>
-</ul>
-
-
-<p>To start an ordered list, write this:</p>
-
-<ol>
-<li>this starts a list <em>with</em> numbers</li>
-<li>this will show as number &ldquo;2&rdquo;</li>
-<li>this will show as number &ldquo;3.&rdquo;</li>
-<li>any number, +, -, or * will keep the list going.
-
-<ul>
-<li>just indent by 4 spaces (or tab) to make a sub-list
-
-<ol>
-<li>keep indenting for more sub lists</li>
-</ol>
-</li>
-<li>here i&rsquo;m back to the second level</li>
-</ul>
-</li>
-</ol>
-
-
-<h3>Tables</h3>
-
-<p>You can create tables using pipes and dashes like this:</p>
-
-<table>
-<thead>
-<tr>
-<th>First Header  </th>
-<th> Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Cell  </td>
-<td> Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell  </td>
-<td> Content Cell</td>
-</tr>
-</tbody>
-</table>
-
-
-<p>You can use markdown syntax within table cells for formatting:</p>
-
-<table>
-<thead>
-<tr>
-<th>First Header   </th>
-<th> Second Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Content Cell</em> </td>
-<td> Content Cell</td>
-</tr>
-<tr>
-<td>Content Cell   </td>
-<td> Content Cell</td>
-</tr>
-</tbody>
-</table>
-
-
-<h3>Headers</h3>
-
-<p>Just put 1 or more dashes or equals signs (&mdash; or ===) below the title.</p>
-
-<h1>This is a huge header</h1>
-
-<h2>this is a smaller header</h2>
-
-<h3>Horizontal Rule</h3>
-
-<h2>Just put three or more *&rsquo;s or -&rsquo;s on a line:</h2>
-
-<p>Or, you can use single spaces between then, like this:</p>
-
-<hr />
-
-<p>or</p>
-
-<hr />
-
-<p>Make sure you have a blank line above the dashes, though, or else:</p>
-
-<h2>you will get a header</h2>
-
-<h3>Images</h3>
-
-<p>To include an image, just put a &ldquo;!&rdquo; in front of a text link:
-<img src="https://sourceforge.net/images/icon_linux.gif" alt="alternate text" /></p>
-
-<p>The &ldquo;alternate text&rdquo; will show up if the browser can&rsquo;t load the image.
-You can also use a title if you want, like this:
-<img src="https://sourceforge.net/images/icon_linux.gif" title="tiny arrow" alt="tiny arrow" /></p>
-
-<h3>More Headers</h3>
-
-<p>More ways of doing headers:</p>
-
-<h1>this is a huge header</h1>
-
-<h2>this is a smaller header</h2>
-
-<h3>this is even smaller</h3>
-
-<h4>more small</h4>
-
-<h5>even smaller</h5>
-
-<h6>smallest still: <code>&lt;h6&gt;</code> header</h6>
+      <div class="sharing">
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/10/14/markdown-syntax-test/" title="Previous Post: Markdown语法测试">&laquo; Markdown语法测试</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -404,6 +208,7 @@ You can also use a title if you want, like this:
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -418,7 +223,10 @@ You can also use a title if you want, like this:
       var disqus_shortname = 'ivector';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/';
+        var disqus_url = 'http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
