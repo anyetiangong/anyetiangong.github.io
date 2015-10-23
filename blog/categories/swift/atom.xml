@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Swift | I Vector]]></title>
+  <link href="http://anyetiangong.github.io/blog/categories/swift/atom.xml" rel="self"/>
+  <link href="http://anyetiangong.github.io/"/>
+  <updated>2015-10-23T10:44:50+08:00</updated>
+  <id>http://anyetiangong.github.io/</id>
+  <author>
+    <name><![CDATA[Vector Li]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Swift基础：变量的创建和使用]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use/"/>
+    <updated>2015-10-22T12:39:12+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/22/swift-base-value-create-and-use</id>
+    <content type="html"><![CDATA[<p>创建变量时不需要指定类型，swift可以对类型进行推断。但是赋值之后，不能再改变变量的类型。
+<code>swift
+var str = "Hello, playground"
+var intValue = 343
+//intValue = "efjiwe"   //不允许改变变量类型
+</code></p>
+
+<p>非可选变量不允许被设置为nil，使用之前必须进行初始化
+<code>swift
+//var nilValue = nil    //非可选变量不允许被设置为nil
+var anotherIntValue: Int    //创建变量时可以不赋值，此时需要指定变量类型
+//var result = anotherIntValue + 3    //不能直接使用没有赋值的变量
+anotherIntValue = 4
+var result = 3 + anotherIntValue
+result = 4
+</code></p>
+
+<p>可选变量通过Type？或Type！来创建，允许设置为nil。如果没有声明为已拆包的类型，在使用时需要进行拆包
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="k">var</span> <span class="nl">optionValue</span><span class="p">:</span> <span class="n">Int</span><span class="o">?</span>    <span class="c1">//通过 Type？来创建可选变量</span>
+</span><span class='line'><span class="n">optionValue</span> <span class="o">=</span> <span class="nb">nil</span>        <span class="c1">//可选变量可以设置为nil</span>
+</span><span class='line'><span class="c1">//var anotherResult = optionValue! + 4  //使用可选变量的时候需要拆包，如果拆包返回nil，停止运行</span>
+</span><span class='line'><span class="n">optionValue</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="k">var</span> <span class="n">anotherResult</span> <span class="o">=</span> <span class="n">optionValue</span><span class="o">!</span> <span class="o">+</span> <span class="mi">4</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">var</span> <span class="nl">unWrapedValue</span><span class="p">:</span> <span class="n">Int</span><span class="o">!</span>     <span class="c1">//通过 Type！创建已拆包的可选变量</span>
+</span><span class='line'><span class="n">unWrapedValue</span> <span class="o">=</span> <span class="mi">4</span>
+</span><span class='line'><span class="n">anotherResult</span> <span class="o">=</span> <span class="n">unWrapedValue</span> <span class="o">+</span> <span class="mi">3</span>   <span class="c1">//使用时不需要再次拆包，但仍有可能出错</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

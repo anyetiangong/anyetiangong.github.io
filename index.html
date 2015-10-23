@@ -9,12 +9,7 @@
   <meta name="author" content="Vector Li">
 
   
-  <meta name="description" content="创建变量时不需要指定类型，swift可以对类型进行推断。但是赋值之后，不能再改变变量的类型。 1
-2
-3
-var str = &quot;Hello, playground&quot;
-var intValue = 343
-//intValue = &quot;efjiwe&quot; // &hellip;">
+  <meta name="description" content="从iOS 9 和 OSX 10.11开始苹果要求网络操作使用Https请求 App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +68,52 @@ var intValue = 343
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/10/23/xcode7-network-access-domain-error/">Xcode7网络操作提示NSURLErrorDomain</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-10-23T10:35:45+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:35 am</span></time>
+        
+           | <a href="/blog/2015/10/23/xcode7-network-access-domain-error/#disqus_thread"
+             data-disqus-identifier="http://anyetiangong.github.io/blog/2015/10/23/xcode7-network-access-domain-error/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>从iOS 9 和 OSX 10.11开始苹果要求网络操作使用Https请求</p>
+
+<blockquote><p>App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains with which it needs secure communication. ATS prevents accidental disclosure, provides secure default behavior, and is easy to adopt. You should adopt ATS as soon as possible, regardless of whether you’re creating a new app or updating an existing one.</p>
+
+<p>If you’re developing a new app, you should use HTTPS exclusively. If you have an existing app, you should use HTTPS as much as you can right now, and create a plan for migrating the rest of your app as soon as possible.</p></blockquote>
+
+<p>对于默认的网络操作会提示Xcode7网络操作提示NSURLErrorDomain。</p>
+
+<p>一个解决办法：修改info.plist文件。</p>
+
+<ol>
+<li>在Info.plist中添加NSAppTransportSecurity类型Dictionary。</li>
+<li>在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES</li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/10/22/swift-base-value-create-and-use/">Swift基础：变量的创建和使用</a></h1>
     
     
@@ -113,7 +154,7 @@ var intValue = 343
 <span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">//var nilValue = nil    //非可选变量不允许被设置为nil</span>
 </span><span class='line'><span class="k">var</span> <span class="nl">anotherIntValue</span><span class="p">:</span> <span class="n">Int</span>    <span class="c1">//创建变量时可以不赋值，此时需要指定变量类型</span>
-</span><span class='line'><span class="c1">//var result = anotherIntValue + 3    //不能直接使用没有复制的变量</span>
+</span><span class='line'><span class="c1">//var result = anotherIntValue + 3    //不能直接使用没有赋值的变量</span>
 </span><span class='line'><span class="n">anotherIntValue</span> <span class="o">=</span> <span class="mi">4</span>
 </span><span class='line'><span class="k">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">anotherIntValue</span>
 </span><span class='line'><span class="n">result</span> <span class="o">=</span> <span class="mi">4</span>
@@ -180,7 +221,7 @@ var intValue = 343
 <p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
 <a href="http://someurl">http://someurl</a></p>
 
-<p><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#115;&#x6f;&#109;&#101;&#x62;&#x62;&#x6f;&#98;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#109;&#x65;&#x62;&#x62;&#x6f;&#x62;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#111;&#109;&#x65;&#98;&#98;&#x6f;&#98;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#x6d;&#101;&#x62;&#x62;&#111;&#98;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a></p>
 
 <p>To use text for the link, write it:
 <a href="http://someurl">like this</a></p>
@@ -385,6 +426,10 @@ You can also use a title if you want, like this:
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/23/xcode7-network-access-domain-error/">Xcode7网络操作提示NSURLErrorDomain</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/10/22/swift-base-value-create-and-use/">Swift基础：变量的创建和使用</a>

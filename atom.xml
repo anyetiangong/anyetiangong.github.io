@@ -4,7 +4,7 @@
   <title><![CDATA[I Vector]]></title>
   <link href="http://anyetiangong.github.io/atom.xml" rel="self"/>
   <link href="http://anyetiangong.github.io/"/>
-  <updated>2015-10-22T17:58:23+08:00</updated>
+  <updated>2015-10-23T10:44:50+08:00</updated>
   <id>http://anyetiangong.github.io/</id>
   <author>
     <name><![CDATA[Vector Li]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Xcode7网络操作提示NSURLErrorDomain]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/23/xcode7-network-access-domain-error/"/>
+    <updated>2015-10-23T10:35:45+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/23/xcode7-network-access-domain-error</id>
+    <content type="html"><![CDATA[<p>从iOS 9 和 OSX 10.11开始苹果要求网络操作使用Https请求</p>
+
+<blockquote><p>App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains with which it needs secure communication. ATS prevents accidental disclosure, provides secure default behavior, and is easy to adopt. You should adopt ATS as soon as possible, regardless of whether you’re creating a new app or updating an existing one.</p>
+
+<p>If you’re developing a new app, you should use HTTPS exclusively. If you have an existing app, you should use HTTPS as much as you can right now, and create a plan for migrating the rest of your app as soon as possible.</p></blockquote>
+
+<p>对于默认的网络操作会提示Xcode7网络操作提示NSURLErrorDomain。</p>
+
+<p>一个解决办法：修改info.plist文件。</p>
+
+<ol>
+<li>在Info.plist中添加NSAppTransportSecurity类型Dictionary。</li>
+<li>在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES</li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Swift基础：变量的创建和使用]]></title>
@@ -39,7 +62,7 @@
 <span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='swift'><span class='line'><span class="c1">//var nilValue = nil    //非可选变量不允许被设置为nil</span>
 </span><span class='line'><span class="k">var</span> <span class="nl">anotherIntValue</span><span class="p">:</span> <span class="n">Int</span>    <span class="c1">//创建变量时可以不赋值，此时需要指定变量类型</span>
-</span><span class='line'><span class="c1">//var result = anotherIntValue + 3    //不能直接使用没有复制的变量</span>
+</span><span class='line'><span class="c1">//var result = anotherIntValue + 3    //不能直接使用没有赋值的变量</span>
 </span><span class='line'><span class="n">anotherIntValue</span> <span class="o">=</span> <span class="mi">4</span>
 </span><span class='line'><span class="k">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">anotherIntValue</span>
 </span><span class='line'><span class="n">result</span> <span class="o">=</span> <span class="mi">4</span>
@@ -83,7 +106,7 @@
 <p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
 <a href="http://someurl">http://someurl</a></p>
 
-<p><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#115;&#x6f;&#109;&#101;&#x62;&#x62;&#x6f;&#98;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#109;&#x65;&#x62;&#x62;&#x6f;&#x62;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#111;&#109;&#x65;&#98;&#98;&#x6f;&#98;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#x6d;&#101;&#x62;&#x62;&#111;&#98;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a></p>
 
 <p>To use text for the link, write it:
 <a href="http://someurl">like this</a></p>

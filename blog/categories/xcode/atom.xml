@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Xcode | I Vector]]></title>
+  <link href="http://anyetiangong.github.io/blog/categories/xcode/atom.xml" rel="self"/>
+  <link href="http://anyetiangong.github.io/"/>
+  <updated>2015-10-23T10:44:50+08:00</updated>
+  <id>http://anyetiangong.github.io/</id>
+  <author>
+    <name><![CDATA[Vector Li]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Xcode7网络操作提示NSURLErrorDomain]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/23/xcode7-network-access-domain-error/"/>
+    <updated>2015-10-23T10:35:45+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/23/xcode7-network-access-domain-error</id>
+    <content type="html"><![CDATA[<p>从iOS 9 和 OSX 10.11开始苹果要求网络操作使用Https请求</p>
+
+<blockquote><p>App Transport Security (ATS) lets an app add a declaration to its Info.plist file that specifies the domains with which it needs secure communication. ATS prevents accidental disclosure, provides secure default behavior, and is easy to adopt. You should adopt ATS as soon as possible, regardless of whether you’re creating a new app or updating an existing one.</p>
+
+<p>If you’re developing a new app, you should use HTTPS exclusively. If you have an existing app, you should use HTTPS as much as you can right now, and create a plan for migrating the rest of your app as soon as possible.</p></blockquote>
+
+<p>对于默认的网络操作会提示Xcode7网络操作提示NSURLErrorDomain。</p>
+
+<p>一个解决办法：修改info.plist文件。</p>
+
+<ol>
+<li>在Info.plist中添加NSAppTransportSecurity类型Dictionary。</li>
+<li>在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
