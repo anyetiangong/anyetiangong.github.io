@@ -4,7 +4,7 @@
   <title><![CDATA[I Vector]]></title>
   <link href="http://anyetiangong.github.io/atom.xml" rel="self"/>
   <link href="http://anyetiangong.github.io/"/>
-  <updated>2015-10-23T10:44:50+08:00</updated>
+  <updated>2015-11-26T11:42:45+08:00</updated>
   <id>http://anyetiangong.github.io/</id>
   <author>
     <name><![CDATA[Vector Li]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[创建背景透明的QPixmap]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/11/26/create-translate-pixmap-with-qt/"/>
+    <updated>2015-11-26T11:27:13+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/11/26/create-translate-pixmap-with-qt</id>
+    <content type="html"><![CDATA[<p>创建一个透明背景的QPixmap，不能使用QPainter去绘制，在没有底色的情况下绘制会使用随机颜色。可以使用QPixmap的fill方法。
+方法很简单：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">QPixmap</span> <span class="nf">pix</span><span class="p">(</span><span class="n">nImageWidth</span><span class="p">,</span> <span class="n">nImageHeight</span><span class="p">);</span>
+</span><span class='line'><span class="n">pix</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">transparent</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Swift变量内容改动时的提示]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/10/25/swiftbian-liang-nei-rong-gai-dong-shi-de-ti-shi/"/>
+    <updated>2015-10-25T19:19:23+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/10/25/swiftbian-liang-nei-rong-gai-dong-shi-de-ti-shi</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Xcode7网络操作提示NSURLErrorDomain]]></title>
@@ -106,7 +132,7 @@
 <p>Most URLs will automatically be turned into links. To be explicit, just write it like this:
 <a href="http://someurl">http://someurl</a></p>
 
-<p><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x73;&#111;&#109;&#x65;&#98;&#98;&#x6f;&#98;&#64;&#101;&#120;&#97;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#115;&#x6f;&#x6d;&#101;&#x62;&#x62;&#111;&#98;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a></p>
+<p><a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#115;&#x6f;&#109;&#x65;&#98;&#98;&#111;&#x62;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#109;">&#x73;&#111;&#x6d;&#x65;&#98;&#98;&#111;&#x62;&#x40;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#99;&#111;&#109;</a></p>
 
 <p>To use text for the link, write it:
 <a href="http://someurl">like this</a></p>

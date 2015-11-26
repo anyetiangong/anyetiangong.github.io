@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Qt | I Vector]]></title>
+  <link href="http://anyetiangong.github.io/blog/categories/qt/atom.xml" rel="self"/>
+  <link href="http://anyetiangong.github.io/"/>
+  <updated>2015-11-26T11:42:45+08:00</updated>
+  <id>http://anyetiangong.github.io/</id>
+  <author>
+    <name><![CDATA[Vector Li]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[创建背景透明的QPixmap]]></title>
+    <link href="http://anyetiangong.github.io/blog/2015/11/26/create-translate-pixmap-with-qt/"/>
+    <updated>2015-11-26T11:27:13+08:00</updated>
+    <id>http://anyetiangong.github.io/blog/2015/11/26/create-translate-pixmap-with-qt</id>
+    <content type="html"><![CDATA[<p>创建一个透明背景的QPixmap，不能使用QPainter去绘制，在没有底色的情况下绘制会使用随机颜色。可以使用QPixmap的fill方法。
+方法很简单：
+<code>cpp
+QPixmap pix(nImageWidth, nImageHeight);
+pix.fill(Qt::transparent);
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
